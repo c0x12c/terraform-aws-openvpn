@@ -16,6 +16,7 @@ module "openvpn" {
   vpc_id    = "vpc-123456789"
   subnet_id = "subnet-123456789"
   extra_sg_ids = ["sg-123456789"]
+  dns_server_cidrs = ["10.0.0.0/16", "172.16.0.0/16"] # resolves to .2 IP in each CIDR
 
   oauth2_client_id     = "google_client_id"
   oauth2_client_secret = "google_client_secret"
@@ -83,6 +84,7 @@ No modules.
 | <a name="input_create_management_key_pair"></a> [create\_management\_key\_pair](#input\_create\_management\_key\_pair)       | Whether to create a management key pair.                                                                             | `bool`         | `true`                                |    no    |
 | <a name="input_custom_cert_dns_names"></a> [custom\_cert\_dns\_names](#input\_custom\_cert\_dns\_names)                      | A list of custom DNS names to add to the certificate.                                                                | `list(string)` | `null`                                |    no    |
 | <a name="input_disk_boot_size"></a> [disk\_boot\_size](#input\_disk\_boot\_size)                                             | The size of the boot disk in GB.                                                                                     | `number`       | `"10"`                                |    no    |
+| <a name="input_dns_server_cidrs"></a> [dns\_server\_cidrs](#input\_dns\_server\_cidrs)                                        | A list of CIDRs where the DNS server IP is calculated as host index 2 of each CIDR.                                 | `list(string)` | `[]`                                  |    no    |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name)                                                        | The domain name.                                                                                                     | `string`       | n/a                                   |   yes    |
 | <a name="input_ec2_public_key"></a> [ec2\_public\_key](#input\_ec2\_public\_key)                                             | The existing value of ec2 public key. If not set, create and use `tls_private_key`.                                  | `string`       | `null`                                |    no    |
 | <a name="input_enabled_http_port"></a> [enabled\_http\_port](#input\_enabled\_http\_port)                                    | Whether to enable HTTP port through security group.                                                                  | `bool`         | `true`                                |    no    |

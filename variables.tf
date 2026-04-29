@@ -73,6 +73,12 @@ variable "route_network_cidrs" {
   default     = ["10.0.0.0/8"]
 }
 
+variable "dns_server_cidrs" {
+  type        = list(string)
+  description = "A list of CIDRs where the DNS server IP is calculated as host index 2 of each CIDR."
+  default     = []
+}
+
 variable "openvpn_auth_oauth2_version" {
   type        = string
   description = "The version of OpenVPN OAuth2 authentication plugin."

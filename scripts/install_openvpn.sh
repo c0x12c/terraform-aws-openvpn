@@ -31,8 +31,9 @@ persist-tun
 status /var/log/openvpn/openvpn-status.log
 verb 3
 explicit-exit-notify 1
-push "dhcp-option DNS 1.1.1.1"
-push "dhcp-option DNS 208.67.220.220"
+%{~ for dns in dns_servers ~}
+push "dhcp-option DNS ${dns}"
+%{~ endfor ~}
 
 %{~ for cidr in route_network_cidrs ~}
 push "route ${cidr}"

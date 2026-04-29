@@ -18,6 +18,7 @@ locals {
     oauth2_validate_groups       = var.oauth2_validate_groups
     oauth2_validate_roles        = var.oauth2_validate_roles
     route_network_cidrs          = var.route_network_cidrs
+    dns_servers                  = concat(["1.1.1.1", "208.67.220.220"], [for cidr in var.dns_server_cidrs : cidrhost(cidr, 2)])
     init_script_callback_comment = var.init_script_callback_comment
   }
 
