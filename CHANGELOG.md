@@ -1,6 +1,8 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+## [0.6.0]() (2026-04-29)
+Add variables `dns_server_cidrs` for OpenVPN, so it could able to resolve some DNS inside VPC while using VPC Peering.
 
 ## [0.5.0]() (2025-04-21)
 
